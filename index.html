@@ -80,7 +80,7 @@ body,table,td {font-size:14px; font-family: Arial, Helvetica, sans-serif;}
 }*/
 </style>
 
-<input type="file" accept=".swf" accepts=".swf" disabled/>
+<input type="file" accept=".swf" disabled/>
 <table id="loading" style="position: absolute; left: 10px; top: 20px; background: white none repeat scroll 0% 0%; padding: 3px; border: 0px solid silver; box-shadow: rgb(153, 153, 153) 0px 0px 10px; display: none;">
 <tbody><tr><td><img src="./wait.gif">
 </td><td>Loading library... Please wait a moment.
@@ -95,6 +95,7 @@ body,table,td {font-size:14px; font-family: Arial, Helvetica, sans-serif;}
 <script>
 var gainNode;
 var filein=document.querySelector("input[type=file]");
+if(['iPad', 'iPhone', 'iPod'].indexOf(navigator.platform)>=0)filein.removeAttribute("accept");
 filein.onchange=function(e){
 if(this.files.length<1)return;
 var reader=new FileReader();
